@@ -1,10 +1,10 @@
 import { Page } from "@playwright/test";
+import { HelperBase } from "./helperBase";
 
-class DatePickerPage {
-  readonly page : Page;
+class DatePickerPage extends HelperBase {
 
-  constructor (page: Page) {
-    this.page = page;
+  constructor(page: Page) {
+    super(page);
   }
 
   async selectCommonDatePickerDateFromToday(numberOfDaysFromToday: number = 0){
@@ -22,9 +22,6 @@ class DatePickerPage {
   async selectDatePickerWithRange(startDate: number, endDate: number) {
     const rangeDatePicker = this.page.getByPlaceholder("Range Picker");
     await rangeDatePicker.click();
-
-    // const date = new Date()
-    // const daysFromToday = String(date.getDate() + numberOfDaysFromToday);
     
     const calendarContainer = this.page.locator('nb-calendar-day-picker');
     const selectStartDate = calendarContainer.locator('[class="range-cell day-cell ng-star-inserted"]').getByText(startDate.toString(), {exact: true});

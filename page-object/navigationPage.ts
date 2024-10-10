@@ -1,10 +1,10 @@
 import { Locator, Page } from "@playwright/test";
+import { HelperBase } from "./helperBase"
 
-class NavigationPage {
-  readonly page: Page;
+class NavigationPage extends HelperBase {
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
   }
 
   async formLayoutPage() {
