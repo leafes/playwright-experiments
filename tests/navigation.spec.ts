@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import {PageManager} from "../page-object/pageManager"
+import {PageManager} from "../page-object/PageManager"
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -28,7 +28,7 @@ test("Pick date in common datepicker", async ({ page }) => {
   await pm.onDatePickerPage().selectCommonDatePickerDateFromToday(1);
 })
 
-test("pick date in range datepicker", async ({page}) => {
+test("Pick date in range datepicker", async ({page}) => {
   const pm = new PageManager(page);
 
   await pm.navigateTo().datePickerPage();
